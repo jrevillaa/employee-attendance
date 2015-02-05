@@ -8,7 +8,7 @@ angular.module('mean.profile').controller('ProfileController', ['$rootScope', '$
 
         $scope.findOne = function() {
             Profile.get({
-                userId: $scope.global.user._id
+                editUserId: $scope.global.user._id
             }, function(profile) {
                 $scope.global = profile;
             },function(error){
@@ -55,7 +55,7 @@ angular.module('mean.profile').controller('ProfileController', ['$rootScope', '$
                 }
                 else{
                     profile.$update({
-                        userId: $scope.global.user._id
+                        editUserId: $scope.global.user._id
                     },function(response){
                         $scope.msg = 'Profile Updated';
                     },function(error){

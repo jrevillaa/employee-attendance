@@ -39,12 +39,12 @@ module.exports = function (Profile, app, auth, database) {
         .get(profile.all)
         .post(auth.requiresLogin, profile.create);
 
-    app.route('/profile/:userId')
+    app.route('/profile/:editUserId')
         .get(auth.isMongoId, profile.show)
         .put(auth.isMongoId, auth.requiresLogin, hasAuthorization, profile.update)
         .delete(auth.isMongoId, auth.requiresLogin, hasAuthorization, profile.destroy);
 
     // Finish with setting up the articleId param
-    app.param('userId', profile.profile);
+    app.param('editUserId', profile.profile);
 
 };

@@ -2,9 +2,9 @@
 
 angular.module('mean.profile').factory('Profile', ['$resource',
   function($resource) {
-      return $resource('profile/:userId',
+      return $resource('profile/:editUserId',
       {
-          userId : '@_uid'
+          editUserId : '@_uid'
       },
       {
           update: {
