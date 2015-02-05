@@ -1,0 +1,54 @@
+<div class="container-fluid" data-ng-controller="LoginCtrl">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                Login
+            </h1>
+            <ol class="breadcrumb">
+                <li>
+                    <i class="fa fa-home"></i>  <a ui-sref="home" mean-token="'site-title'">Home</a>
+                </li>
+                <li class="active">
+                    <i class="fa fa-sign-in"></i> Login
+                </li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="alert alert-danger animated fadeIn" ng-show="loginerror">{{loginerror}}</div>
+            <!--<h2>Login</h2>-->
+            <form id="login_form" ng-submit="login()">
+                <div class="input-wrapper">
+                    <input required id="email_block" type="email" name="email" placeholder="Email Address"
+                           ng-model="user.email">
+
+                    <div class="error_message">Please enter a correct info #</div>
+                    <span class="pic email"></span>
+                </div>
+                <div class="input-wrapper">
+                    <input required id="password_block" name="password" type="{{input.type}}"
+                           placeholder="{{input.placeholder}}" ng-model="user.password">
+
+                    <div class="error_message">Please enter a correct info #</div>
+                <span class="pic password {{input.iconClass}}" ng-click="togglePasswordVisible()">
+                      <div class="hide_text_password">
+                          {{input.tooltipText}}
+                      </div>
+                </span>
+                </div>
+                <div class="forgot_password">
+                    <a ui-sref='forgot-password'>Forgot your password?</a>
+                </div>
+                <div class="button_login">
+                    <button type="submit" class="submit_button">Login</button>
+                    <p>Don't have an account?</p>
+                    <a ui-sref='auth.register'>Sign up</a>
+                </div>
+                <!--<div class="woman_ninja_bottom">
+                    <img src="/theme/assets/img/woman_ninja.png" alt="#">
+                </div>-->
+            </form>
+        </div>
+    </div>
+</div>
